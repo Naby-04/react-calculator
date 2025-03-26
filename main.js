@@ -5,7 +5,7 @@ class Boutton extends React.Component {
   render() {
     return (
       <>
-        <div className="col-4 p-1">
+        <div className="col-3 p-1">
           <button id="btn" className="btn py-4 px-1 mb-2 w-100">
             {this.props.number}
           </button>
@@ -23,9 +23,9 @@ class Operator extends React.Component {
   render() {
     return (
       <>
-        <div className="p-1">
+        <div className="col-3 p-1">
           <button id="operator" className="btn py-4 px-1 mb-2 w-100">
-            x
+            {this.props.operator}
           </button>
         </div>
       </>
@@ -37,17 +37,21 @@ class Operator extends React.Component {
 class Screen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      operation: 0,
+      resultat: 0,
+    };
   }
   render() {
     return (
       <>
-        <div className="screen-border mb-2 p-0">
+        <div className="screen-border mb-2">
           <div
             id="screen"
-            className="container py-3 d-flex flex-column text-end"
+            className="container bg-light py-3 d-flex flex-column text-end"
           >
-            <span id="operation">18 x 3 + 8</span>
-            <span id="resultat">62</span>
+            <span id="operation">{this.state.resultat}</span>
+            <span id="resultat">{this.state.resultat}</span>
           </div>
         </div>
       </>
@@ -60,9 +64,6 @@ class App extends React.Component {
   // --------------------
   constructor(props) {
     super(props);
-    this.state = {
-      number: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
-    };
   }
   // --------- Methodes section -----------
 
@@ -71,20 +72,28 @@ class App extends React.Component {
     // ---------------------
     return (
       <>
-        <div id="calculator" className="container row p-3 rounded">
+        <div id="calculator" className="container p-4 rounded">
           <Screen />
-          <div className="col-9 row m-0 p-0 ">
-            {/* ---------------- */}
-            {this.state.number.map((num, index) => (
-              <Boutton key={index} number={num} />
-            ))}
-          </div>
-          {/* ---------------- */}
-          <div className="col-3 p-0 m-0">
-            <Operator />
-            <Operator />
-            <Operator />
-            <Operator />
+          <div className="Bouttons row px-2">
+            <Boutton number="7" />
+            <Boutton number="8" />
+            <Boutton number="9" />
+            <Operator operator="/" />
+            {/* -------------------- */}
+            <Boutton number="4" />
+            <Boutton number="5" />
+            <Boutton number="6" />
+            <Operator operator="x" />
+            {/* -------------------- */}
+            <Boutton number="1" />
+            <Boutton number="2" />
+            <Boutton number="3" />
+            <Operator operator="-" />
+            {/* -------------------- */}
+            <Operator operator="." />
+            <Boutton number="0" />
+            <Operator operator="=" />
+            <Operator operator="+" />
           </div>
         </div>
       </>
