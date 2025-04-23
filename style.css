@@ -25,7 +25,7 @@ body {
 }
 #calculator {
   background: #2f4c2f;
-  max-width: 400px;
+  max-width: 300px;
   box-shadow: #000 2px 7px 2px, #000 0px 8px 5px;
 }
 /* ================================================ */
@@ -46,7 +46,7 @@ button {
   font-size: 25px !important;
   font-weight: 900 !important;
   position: relative;
-  width: 150px;
+  /* width: 150px; */
   border: none;
   background: var(--btn-background) !important;
   color: var(--btn-color);
@@ -66,4 +66,5 @@ button:active {
   border-radius: 10px !important;
   color: var(--screen-color);
   box-shadow: #000 0px 7px 2px, #000 0px 8px 5px;
+  font-size: 24px;
 }
